@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Oauth認可画面URLの作り方 | ALIS OAuth Document</title>
+    <meta name="description" content="ALIS OAuth Document">
+    
+    
+    <link rel="preload" href="/oauth2/assets/css/0.styles.84940035.css" as="style"><link rel="preload" href="/oauth2/assets/js/app.c1baedd3.js" as="script"><link rel="preload" href="/oauth2/assets/js/3.32c68113.js" as="script"><link rel="prefetch" href="/oauth2/assets/js/10.a876fc82.js"><link rel="prefetch" href="/oauth2/assets/js/2.d8f505d4.js"><link rel="prefetch" href="/oauth2/assets/js/4.fe240450.js"><link rel="prefetch" href="/oauth2/assets/js/5.11740e73.js"><link rel="prefetch" href="/oauth2/assets/js/6.48b89d8b.js"><link rel="prefetch" href="/oauth2/assets/js/7.f667b216.js"><link rel="prefetch" href="/oauth2/assets/js/8.5100d8a1.js"><link rel="prefetch" href="/oauth2/assets/js/9.72b37ad2.js">
+    <link rel="stylesheet" href="/oauth2/assets/css/0.styles.84940035.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/oauth2/" class="home-link router-link-active"><!----> <span class="site-name">ALIS OAuth Document</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/oauth2/" class="nav-link">Home</a></div><div class="nav-item"><a href="/oauth2/term/" class="nav-link">Term</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/oauth2/" class="nav-link">Home</a></div><div class="nav-item"><a href="/oauth2/term/" class="nav-link">Term</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/oauth2/getting-start/" class="sidebar-link">利用までの流れ</a></li><li><a href="/oauth2/oauth-flow/" class="sidebar-link">OAuth2.0 を利用した API 実行手順</a></li><li><a href="/oauth2/authorization-url/" class="active sidebar-link">Oauth認可画面URLの作り方</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/oauth2/authorization-url/#概要" class="sidebar-link">概要</a></li><li class="sidebar-sub-header"><a href="/oauth2/authorization-url/#各パラメータ説明" class="sidebar-link">各パラメータ説明</a></li><li class="sidebar-sub-header"><a href="/oauth2/authorization-url/#url例" class="sidebar-link">URL例</a></li></ul></li><li><a href="/oauth2/idtoken-verify/" class="sidebar-link">ID tokenの検証</a></li><li><a href="/oauth2/scopes/" class="sidebar-link">権限一覧</a></li><li><a href="/oauth2/term/" class="sidebar-link">利用規約</a></li></ul> </div> <div class="page"> <div class="content"><h1 id="oauth認可画面urlの作り方"><a href="#oauth認可画面urlの作り方" aria-hidden="true" class="header-anchor">#</a> Oauth認可画面URLの作り方</h1> <h2 id="概要"><a href="#概要" aria-hidden="true" class="header-anchor">#</a> 概要</h2> <p>認可コード取得にはユーザーの許可が必要です。
+認可画面は https://alis.to/oauth というURLに以下のクエリパラメータを加えてください。</p> <ul><li>client_id</li> <li>redirect_uri</li> <li>scope</li> <li>code_challenge</li></ul> <h2 id="各パラメータ説明"><a href="#各パラメータ説明" aria-hidden="true" class="header-anchor">#</a> 各パラメータ説明</h2> <h3 id="client-id"><a href="#client-id" aria-hidden="true" class="header-anchor">#</a> client_id</h3> <p>OAuthアプリケーションを登録した際に発行されたclient_idを指定して下さい</p> <h3 id="redirect-uri"><a href="#redirect-uri" aria-hidden="true" class="header-anchor">#</a> redirect_uri</h3> <p>OAuthアプリケーションを登録した際に指定したredirect_uriの内一つを指定して下さい。</p> <h3 id="scope"><a href="#scope" aria-hidden="true" class="header-anchor">#</a> scope</h3> <p>OAuthアプリケーションのscopeを指定します。
+<code>read</code> もしくは <code>write</code> のみ指定できます。</p> <h3 id="code-challenge"><a href="#code-challenge" aria-hidden="true" class="header-anchor">#</a> code_challenge</h3> <p><a href="https://tools.ietf.org/html/rfc7636#appendix-B" target="_blank" rel="noopener noreferrer">PKCE<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>で使用するパラメータです。
+ALIS APIを使用するアプリケーション側でcode_verifierを生成し、code_challengeを計算して下さい。</p> <p>例)</p> <pre><code>code_verifier = &quot;dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk&quot;
+code_challenge = &quot;E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM&quot;
+</code></pre> <h2 id="url例"><a href="#url例" aria-hidden="true" class="header-anchor">#</a> URL例</h2> <ul><li>client_id = <code>12345678901234</code></li> <li>redirect_uri = <code>https://example.com</code></li> <li>scope = <code>openid read</code></li> <li>code_challenge = <code>hcCb3gToI1GPZeS_SIYWvaNT_5u0GB1oqOGQJqRKMSE</code></li></ul> <p>上記パラメーターの場合,URLは以下の通りです。</p> <pre><code>https://alis.to/oauth?client_id=12345678901234&amp;redirect_uri=https%3A%2F%2Fexample.com&amp;scope=openid+read&amp;code_challenge=hcCb3gToI1GPZeS_SIYWvaNT_5u0GB1oqOGQJqRKMSE
+</code></pre></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/oauth2/oauth-flow/" class="prev">
+          OAuth2.0 を利用した API 実行手順
+        </a></span> <span class="next"><a href="/oauth2/idtoken-verify/">
+          ID tokenの検証
+        </a>
+        →
+      </span></p></div> </div> <!----></div></div>
+    <script src="/oauth2/assets/js/app.c1baedd3.js" defer></script><script src="/oauth2/assets/js/3.32c68113.js" defer></script>
+  </body>
+</html>
