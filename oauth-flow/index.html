@@ -7,7 +7,7 @@
     <meta name="description" content="ALIS OAuth Document">
     
     
-    <link rel="preload" href="/oauth2/assets/css/0.styles.84940035.css" as="style"><link rel="preload" href="/oauth2/assets/js/app.3e1d3acd.js" as="script"><link rel="preload" href="/oauth2/assets/js/7.539e3c0f.js" as="script"><link rel="prefetch" href="/oauth2/assets/js/10.a876fc82.js"><link rel="prefetch" href="/oauth2/assets/js/2.d8f505d4.js"><link rel="prefetch" href="/oauth2/assets/js/3.9fc32c08.js"><link rel="prefetch" href="/oauth2/assets/js/4.bc3625fa.js"><link rel="prefetch" href="/oauth2/assets/js/5.b4fd7b20.js"><link rel="prefetch" href="/oauth2/assets/js/6.48b89d8b.js"><link rel="prefetch" href="/oauth2/assets/js/8.3fe44306.js"><link rel="prefetch" href="/oauth2/assets/js/9.212ca126.js">
+    <link rel="preload" href="/oauth2/assets/css/0.styles.84940035.css" as="style"><link rel="preload" href="/oauth2/assets/js/app.e4a03e7b.js" as="script"><link rel="preload" href="/oauth2/assets/js/7.3c97d309.js" as="script"><link rel="prefetch" href="/oauth2/assets/js/10.a876fc82.js"><link rel="prefetch" href="/oauth2/assets/js/2.d8f505d4.js"><link rel="prefetch" href="/oauth2/assets/js/3.f931ed39.js"><link rel="prefetch" href="/oauth2/assets/js/4.bc3625fa.js"><link rel="prefetch" href="/oauth2/assets/js/5.b4fd7b20.js"><link rel="prefetch" href="/oauth2/assets/js/6.48b89d8b.js"><link rel="prefetch" href="/oauth2/assets/js/8.3fe44306.js"><link rel="prefetch" href="/oauth2/assets/js/9.212ca126.js">
     <link rel="stylesheet" href="/oauth2/assets/css/0.styles.84940035.css">
   </head>
   <body>
@@ -38,8 +38,8 @@ grant_type=authorization_code
 この認可の詳細については<a href="#%E5%8F%82%E8%80%83%EF%BC%9A-%E8%AA%8D%E5%8F%AF%E3%83%95%E3%83%AD%E3%83%BC%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">参考： 認可フローについて</a>を参照ください。</p> <h3 id="手順１：認可コード取得-2"><a href="#手順１：認可コード取得-2" aria-hidden="true" class="header-anchor">#</a> 手順１：認可コード取得</h3> <p>認可コードを受け取るためには、まずユーザ側に認可コード発行の同意を求める必要があります。
 <a href="/oauth2/authorization-url/">同意画面へのURL作成方法</a> を元に同意を求める画面への URL を作成し、ユーザに同意を求めます。</p> <p>ユーザ側で同意が行われると上記 URL 作成時に指定した redirect_uri へリダイレクトされ、query string より認可コード（code）を取得できます。</p> <p>例)
 app://example.com/oauth?code=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p> <h3 id="手順２：アクセストークンの取得-2"><a href="#手順２：アクセストークンの取得-2" aria-hidden="true" class="header-anchor">#</a> 手順２：アクセストークンの取得</h3> <p>事前に <a href="http://alis.to/me/settings/applications" target="_blank" rel="noopener noreferrer">アプリケーション登録<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>にて登録したアプリケーション（クライアントタイプ：ネイティブアプリケーション）より、Client ID を取得します。
-この Client ID を元に https://alis.to/oauth2/token へ下記例を参考にリクエストし、Access Token, Refresh Token, ID tokenを取得します。</p> <p>リクエスト例</p> <div class="language- extra-class"><pre class="language-text"><code>POST /oauth2/token HTTP/1.1
-Host: alis.to
+この Client ID を元に https://alis.to/oauth2/token へ下記例を参考にリクエストし、Access Token, Refresh Token, ID tokenを取得します。</p> <p>リクエスト例</p> <div class="language- extra-class"><pre class="language-text"><code>POST /token HTTP/1.1
+Host: oauth2.alis.to
 Content-Type: application/x-www-form-urlencoded
  
 grant_type=authorization_code
@@ -65,6 +65,6 @@ grant_type=authorization_code
         </a>
         →
       </span></p></div> </div> <!----></div></div>
-    <script src="/oauth2/assets/js/app.3e1d3acd.js" defer></script><script src="/oauth2/assets/js/7.539e3c0f.js" defer></script>
+    <script src="/oauth2/assets/js/app.e4a03e7b.js" defer></script><script src="/oauth2/assets/js/7.3c97d309.js" defer></script>
   </body>
 </html>
