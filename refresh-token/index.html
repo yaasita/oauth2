@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>アクセストークンの再取得 | ALIS OAuth Document</title>
+    <meta name="description" content="ALIS OAuth Document">
+    
+    
+    <link rel="preload" href="/oauth2/assets/css/0.styles.84940035.css" as="style"><link rel="preload" href="/oauth2/assets/js/app.61ec7919.js" as="script"><link rel="preload" href="/oauth2/assets/js/8.5c8788ac.js" as="script"><link rel="prefetch" href="/oauth2/assets/js/10.5bdbdf3a.js"><link rel="prefetch" href="/oauth2/assets/js/11.28002d60.js"><link rel="prefetch" href="/oauth2/assets/js/2.d8f505d4.js"><link rel="prefetch" href="/oauth2/assets/js/3.f931ed39.js"><link rel="prefetch" href="/oauth2/assets/js/4.687821a7.js"><link rel="prefetch" href="/oauth2/assets/js/5.b4fd7b20.js"><link rel="prefetch" href="/oauth2/assets/js/6.48b89d8b.js"><link rel="prefetch" href="/oauth2/assets/js/7.539e3c0f.js"><link rel="prefetch" href="/oauth2/assets/js/9.d781c882.js">
+    <link rel="stylesheet" href="/oauth2/assets/css/0.styles.84940035.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/oauth2/" class="home-link router-link-active"><!----> <span class="site-name">ALIS OAuth Document</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/oauth2/" class="nav-link">Home</a></div><div class="nav-item"><a href="/oauth2/term/" class="nav-link">Term</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/oauth2/" class="nav-link">Home</a></div><div class="nav-item"><a href="/oauth2/term/" class="nav-link">Term</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/oauth2/getting-start/" class="sidebar-link">利用までの流れ</a></li><li><a href="/oauth2/term/" class="sidebar-link">利用ガイドライン</a></li><li><a href="/oauth2/oauth-flow/" class="sidebar-link">OAuth2.0 を利用した API 実行手順</a></li><li><a href="/oauth2/authorization-url/" class="sidebar-link">同意画面のURL作成</a></li><li><a href="/oauth2/idtoken-verify/" class="sidebar-link">ID tokenの検証</a></li><li><a href="/oauth2/scopes/" class="sidebar-link">権限一覧</a></li><li><a href="/oauth2/refresh-token/" class="active sidebar-link">アクセストークンの再取得</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/oauth2/refresh-token/#サーバサイドアプリケーション向け" class="sidebar-link">サーバサイドアプリケーション向け</a></li><li class="sidebar-sub-header"><a href="/oauth2/refresh-token/#ネイティブアプリケーション向け" class="sidebar-link">ネイティブアプリケーション向け</a></li></ul></li></ul> </div> <div class="page"> <div class="content"><h1 id="アクセストークンの再取得"><a href="#アクセストークンの再取得" aria-hidden="true" class="header-anchor">#</a> アクセストークンの再取得</h1> <p>取得した各種トークンには以下の通り有効期限が設定されています。</p> <ul><li>access_token: 3600 秒</li> <li>refresh_token: 無期限</li> <li>id_token: 3600秒</li></ul> <p>access_tokenの有効期限が切れた場合はrefresh_tokenを用いて再取得してください</p> <p>リクエストは以下のパラメーターを指定してください</p> <ul><li>grant_type: refresh_token</li> <li>refresh_token: (取得したrefresh_token)</li> <li>client_id: ネィテイブアプリのみclient_idを指定してください</li></ul> <h2 id="サーバサイドアプリケーション向け"><a href="#サーバサイドアプリケーション向け" aria-hidden="true" class="header-anchor">#</a> サーバサイドアプリケーション向け</h2> <p>リクエスト例</p> <div class="language- extra-class"><pre class="language-text"><code>POST /oauth2/token HTTP/1.1
+Authorization: Basic xxxxxxxxxxxxxxxxx
+content-type: application/x-www-form-urlencoded
+Host: alis.to
+
+grant_type=refresh_token&amp;refresh_token=xxxxxxxxxx
+</code></pre></div><h2 id="ネイティブアプリケーション向け"><a href="#ネイティブアプリケーション向け" aria-hidden="true" class="header-anchor">#</a> ネイティブアプリケーション向け</h2> <p>リクエスト例</p> <div class="language- extra-class"><pre class="language-text"><code>POST /oauth2/token HTTP/1.1
+content-type: application/x-www-form-urlencoded
+Host: alis.to
+
+grant_type=refresh_token&amp;client_id=1234567890&amp;refresh_token=xxxxxxxxxx
+</code></pre></div></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/oauth2/scopes/" class="prev">
+          権限一覧
+        </a></span> <!----></p></div> </div> <!----></div></div>
+    <script src="/oauth2/assets/js/app.61ec7919.js" defer></script><script src="/oauth2/assets/js/8.5c8788ac.js" defer></script>
+  </body>
+</html>
